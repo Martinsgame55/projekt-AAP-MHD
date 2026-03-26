@@ -12,13 +12,31 @@ public partial class Form1 : Form
     {
         HttpClient client = new HttpClient();
         string json = await client.GetStringAsync("https://mhd.adamhojer.cz/stops");
-        JsonNode data = JsonNode.Parse(json);
-        var list = data.AsArray().Select(s => new
+        JsonNode stops = JsonNode.Parse(json);
+        foreach (var stop in stops.AsArray())
         {
-            Id = s["unique_id"].ToString(),
-            Nazev = s["stop_name"].ToString()
-        }).ToList();
-        cbStops.DataSource = list;
-        cbStops.DisplayMember = "Nazev";
+            comboBox1.Items.Add(stop["stop_name"].ToString());
+        }
     }
-}
+    private async void Form1_Load(object sender, EventArgs e)
+    {
+        await LoadStops();
+    }
+
+    private void Form1_Load_1(object sender, EventArgs e)
+    {
+        
+    }
+
+    private void label1_Click(object sender, EventArgs e)
+    {
+        
+            }
+        }
+            
+        
+    
+
+
+    
+

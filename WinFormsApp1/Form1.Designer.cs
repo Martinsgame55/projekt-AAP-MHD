@@ -33,8 +33,8 @@ partial class Form1
         comboBox2 = new System.Windows.Forms.ComboBox();
         dataGridView1 = new System.Windows.Forms.DataGridView();
         pictureBox1 = new System.Windows.Forms.PictureBox();
-        label1 = new System.Windows.Forms.Label();
         label2 = new System.Windows.Forms.Label();
+        label1 = new System.Windows.Forms.Label();
         ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
         ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
         SuspendLayout();
@@ -54,7 +54,6 @@ partial class Form1
         comboBox2.Name = "comboBox2";
         comboBox2.Size = new System.Drawing.Size(165, 23);
         comboBox2.TabIndex = 1;
-        comboBox2.SelectedIndexChanged += comboBox2_SelectedIndexChanged;
         // 
         // dataGridView1
         // 
@@ -71,14 +70,6 @@ partial class Form1
         pictureBox1.TabIndex = 3;
         pictureBox1.TabStop = false;
         // 
-        // label1
-        // 
-        label1.Location = new System.Drawing.Point(26, 34);
-        label1.Name = "label1";
-        label1.Size = new System.Drawing.Size(58, 20);
-        label1.TabIndex = 4;
-        label1.Text = "zastávky";
-        // 
         // label2
         // 
         label2.Location = new System.Drawing.Point(26, 87);
@@ -86,24 +77,35 @@ partial class Form1
         label2.Size = new System.Drawing.Size(57, 22);
         label2.TabIndex = 5;
         label2.Text = "linka";
-        label2.Click += label2_Click;
+        // 
+        // label1
+        // 
+        label1.Location = new System.Drawing.Point(26, 32);
+        label1.Name = "label1";
+        label1.Size = new System.Drawing.Size(57, 22);
+        label1.TabIndex = 6;
+        label1.Text = "zastavky";
+        label1.Click += label1_Click;
         // 
         // Form1
         // 
         AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
         AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
         ClientSize = new System.Drawing.Size(800, 450);
-        Controls.Add(label2);
         Controls.Add(label1);
+        Controls.Add(label2);
         Controls.Add(pictureBox1);
         Controls.Add(dataGridView1);
         Controls.Add(comboBox2);
         Controls.Add(comboBox1);
         Text = "Odjezdy autobusů";
+        Load += Form1_Load;
         ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
         ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
         ResumeLayout(false);
     }
+
+    private System.Windows.Forms.Label label1;
 
     private System.Windows.Forms.Label label2;
 
