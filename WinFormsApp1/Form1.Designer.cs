@@ -41,11 +41,14 @@ partial class Form1
         // 
         // comboBox1
         // 
+        comboBox1.DisplayMember = "Nazev";
         comboBox1.FormattingEnabled = true;
         comboBox1.Location = new System.Drawing.Point(106, 32);
         comboBox1.Name = "comboBox1";
         comboBox1.Size = new System.Drawing.Size(166, 23);
         comboBox1.TabIndex = 0;
+        comboBox1.ValueMember = "Id";
+        comboBox1.SelectedIndexChanged += comboBox1_SelectedIndexChanged;
         // 
         // comboBox2
         // 
@@ -54,6 +57,7 @@ partial class Form1
         comboBox2.Name = "comboBox2";
         comboBox2.Size = new System.Drawing.Size(165, 23);
         comboBox2.TabIndex = 1;
+        comboBox2.SelectedIndexChanged += comboBox2_SelectedIndexChanged;
         // 
         // dataGridView1
         // 
