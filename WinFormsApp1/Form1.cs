@@ -53,21 +53,24 @@ public partial class Form1 : Form
 
     private async Task LoadDepartures()
         {
-            var stop = comboBox1.SelectedValue.ToString();
-            var line = comboBox2.SelectedValue.ToString();
-            HttpClient client = new HttpClient();
-            string url = $"https://mhd.adamhojer.cz/departures?stopId={stop}&line={line}";
-            string json = await client.GetStringAsync(url);
-            JsonNode data = JsonNode.Parse(json);
-            dataGridView1.Rows.Clear();
-            foreach (var item in data.AsArray())
+            if (comboBox1.SelectedValue != null && comboBox2.SelectedValue != null)
             {
-                dataGridView1.Rows.Add(
-                    item["linka"],
-                    item["smer"],
-                    item["cas_odjezdu"]
-                );
-                
+                string stop = comboBox1.SelectedValue.ToString();
+                string line = comboBox2.SelectedValue.ToString();
+                HttpClient client = new HttpClient();
+                string url = $"https://mhd.adamhojer.cz/departures?stopId={stop}&line={line}";
+                string json = await client.GetStringAsync(url);
+                JsonNode data = JsonNode.Parse(json);
+                dataGridView1.Rows.Clear();
+                foreach (var item in data.AsArray())
+                {
+                    dataGridView1.Rows.Add(
+                        item["linka"],
+                        item["smer"],
+                        item["cas_odjezdu"]
+                    );
+
+                }
             }
         }
     private async void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
@@ -79,11 +82,3 @@ public partial class Form1 : Form
          await LoadDepartures();
      }
 }
-
-            
-        
-    
-
-
-    
-
